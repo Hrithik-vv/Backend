@@ -16,3 +16,7 @@ const userSchema = new mongoose.Schema({
         minlength:[2,"Password should conatain min 2 characters"]
     }
 })
+
+const User = mongoose.model("User",userSchema);
+
+module.exports =User;
