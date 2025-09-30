@@ -20,6 +20,36 @@ const userLogin = (req, res) => {
     .json({ success: true, message: "User logged in successfully!" });
 };
 
+
+exports.getAllUsers = async(req,res)=>{
+
+  try {
+    const users =await User.find()
+    if(!users){
+      res.json({
+        success:false,
+        message:"Users not found!"
+      })
+    }
+    res.json({
+      success:true,
+      users
+    })
+
+  } catch (error) {
+      res.json({
+        success:false,
+        message:error.message
+      })
+  }
+}
+
+
+
+
+
+
+
 module.exports = {
   getAllUsers,
   userRegister,
